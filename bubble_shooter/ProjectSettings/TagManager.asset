@@ -8,6 +8,8 @@ TagManager:
   - background
   - Border
   - Bubble
+  - Red
+  - GridBubble
   layers:
   - Default
   - TransparentFX

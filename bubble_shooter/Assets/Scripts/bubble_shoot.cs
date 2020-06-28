@@ -3,47 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bubble_shoot : MonoBehaviour
-{
-    public float bubbleSpeed = 30f;
-    public GameObject playerBubble;
-    public Transform playerBubbleSpawnPoint;
-    public Rigidbody2D rb;
+{ 
     private Vector3 targetPosition;
-    private bool isShooting;
-   
+    private Vector3 targetDirection;
+    private bool canShoot;
+    private Rigidbody2D rb;
+    private float bubbleSpeed = 30f;
+
 
     private void Start()
     {
-        //jos tag on redbubble niin rb.isKinematic = false;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        rb.velocity = rb.velocity.normalized * bubbleSpeed;
+
+        if (Input.GetMouseButtonDown(0))
         {
-            TargetPosition();   
+            TargetPosition();
         }
 
-        if (isShooting)
+        if (canShoot)
         {
             Shoot();
         }
+
     }
 
     void TargetPosition()
     {
-        targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        targetPosition.z = transform.position.z;
-        isShooting = true;
+        targetPosition = Input.mousePosition;
+        targetPosition.z = 0f;
+        targetPosition = Camera.main.ScreenToWorldPoint(targetPosition);
+
+        targetDirection = targetPosition - gameObject.transform.position;
+        targetDirection.z = 0f;
+        targetDirection = targetDirection.normalized;
+
+        canShoot = true;
     }
 
     void Shoot()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, bubbleSpeed * Time.deltaTime);
-        if(transform.position == targetPosition)
-        {
-            isShooting = false;
-        }
+        rb.AddForce(targetDirection * bubbleSpeed);
+
+        canShoot = false;
+        
     }
 
 }

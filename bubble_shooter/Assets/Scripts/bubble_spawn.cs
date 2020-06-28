@@ -25,7 +25,7 @@ public class bubble_spawn : MonoBehaviour
             {
                 Vector2 spawnPoint = new Vector2(row * gridGap, column * -gridGap) + gridOrigin;
                 int randomColour = Random.Range(0, bubbleColours.Length);
-                GameObject bubbleClone = Instantiate(bubbleColours[randomColour], spawnPoint, Quaternion.identity);
+                Instantiate(bubbleColours[randomColour], spawnPoint, Quaternion.identity);
             }
         }
 
