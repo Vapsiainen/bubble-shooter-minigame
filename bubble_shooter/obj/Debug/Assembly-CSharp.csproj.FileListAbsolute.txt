@@ -1,0 +1,2 @@
+C:\Users\viivi\OneDrive\Tiedostot\bubble_shooter\bubble_shooter\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\viivi\OneDrive\Tiedostot\bubble_shooter\bubble_shooter\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

@@ -13,7 +13,6 @@ public class player_bubble_spawn : MonoBehaviour
         random = Random.Range(1, 5);
 
         bubbleClone = Resources.Load("bubble" + random) as GameObject;
-        Debug.Log(bubbleClone);
         bubbleClone = Instantiate(bubbleClone, new Vector3(7, -4, 0), Quaternion.identity) as GameObject;
 
         bubbleClone.GetComponent<bubble_shoot>().enabled = true;

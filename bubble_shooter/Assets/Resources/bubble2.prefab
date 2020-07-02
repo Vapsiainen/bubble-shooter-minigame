@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4159626182294438789}
   m_Layer: 0
   m_Name: bubble2
-  m_TagString: Bubble
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,3 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5821982f46b0e74d9d3bd62b989cea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubbleClone: {fileID: 0}
+  x: 0
+  y: 0

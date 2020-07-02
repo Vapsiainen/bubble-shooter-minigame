@@ -5,14 +5,11 @@ using UnityEngine;
 public class player_bubble_collision : MonoBehaviour
 {
 
-    private GameObject bubbleClone;
+    public GameObject bubbleClone;
     private int random;
     private Rigidbody2D rb;
 
 
-    private void Start()
-    {
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -20,32 +17,60 @@ public class player_bubble_collision : MonoBehaviour
 
         if (collision.gameObject.CompareTag("GridBubble"))
         {
+
             if (gameObject.name.Contains("bubble1") && collision.gameObject.name.Contains("grid_bubble1"))
             {
+                rb.velocity = Vector3.zero;
+
+                ScoreManager1.scoreValue++;
+
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
 
+                Debug.Log("You got a point!");
+
                 SpawnNewPlayer();
+
 
             }
             else if (gameObject.name.Contains("bubble2") && collision.gameObject.name.Contains("grid_bubble2"))
             {
+                rb.velocity = Vector3.zero;
+
+                ScoreManager1.scoreValue++;
+
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
 
+                Debug.Log("You got a point!");
+
                 SpawnNewPlayer();
+
             }
             else if (gameObject.name.Contains("bubble3") && collision.gameObject.name.Contains("grid_bubble3"))
             {
+                rb.velocity = Vector3.zero;
+
+                ScoreManager1.scoreValue++;
+
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
 
+                Debug.Log("You got a point!");
+
                 SpawnNewPlayer();
+
             }
             else if (gameObject.name.Contains("bubble4") && collision.gameObject.name.Contains("grid_bubble4"))
             {
+                rb.velocity = Vector3.zero;
+
+                ScoreManager1.scoreValue++;
+
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
+
+                Debug.Log("You got a point!");
 
                 SpawnNewPlayer();
             }
@@ -79,5 +104,7 @@ public class player_bubble_collision : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0;
     }
+
+
 
 }
